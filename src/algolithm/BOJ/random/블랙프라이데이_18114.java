@@ -1,7 +1,7 @@
 package algolithm.BOJ.random;
 
-public class 문자열지옥에빠진호석_20166 {
+public class 블랙프라이데이_18114 {
     public static void main(String[] args) {
-        
+
     }
 }
