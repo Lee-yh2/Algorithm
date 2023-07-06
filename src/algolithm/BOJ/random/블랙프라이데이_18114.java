@@ -41,14 +41,13 @@ public class 블랙프라이데이_18114 {
             } else if (sum < C) {
                 // 3개일 경우도 확인
                 int plusOne = C - sum;
-                if(Arrays.stream(nList).anyMatch(n -> n == plusOne)
+                if(Arrays.binarySearch(nList, plusOne) >= 0
                         && plusOne != nList[s] && plusOne != nList[e]){
                     result = 1;
                     break;
                 }
                 s++;
             }
-
         }
         System.out.println(result);
     }
