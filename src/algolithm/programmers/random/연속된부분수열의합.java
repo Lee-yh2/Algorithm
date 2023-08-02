@@ -26,10 +26,8 @@ public class 연속된부분수열의합 {
                     answer[1] = e;
                     minLength = e-s+1;
                 }
-                e++;
-                if(e >= sequence.length)
-                    break;
-                sum += sequence[e];
+                sum -= sequence[s];
+                s++;
             }
         }
         return answer;
