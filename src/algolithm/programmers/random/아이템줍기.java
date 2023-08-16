@@ -46,6 +46,10 @@ public class 아이템줍기 {
 
         while (!q.isEmpty()){
             int[] cur = q.poll();
+            if(cur[0] == itemX && cur[1] == itemY) {
+                answer = map[cur[0]][cur[1]];
+                break;
+            }
 
             for (int i = 0; i < 4; i++) {
                 int nextX = cur[0] + dx[i];
@@ -59,10 +63,10 @@ public class 아이템줍기 {
 
                 map[nextX][nextY] = map[cur[0]][cur[1]]+1;
 
-                if(nextX == itemX && nextY == itemY){
-                    answer = Math.min(answer, map[nextX][nextY]);
-                    continue;
-                }
+//                if(nextX == itemX && nextY == itemY){
+//                    answer = Math.min(answer, map[nextX][nextY]);
+//                    continue;
+//                }
                 visited[nextX][nextY] = true;
                 q.add(new int[]{nextX, nextY});
             }
