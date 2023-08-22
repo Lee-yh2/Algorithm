@@ -1,5 +1,8 @@
 package algolithm.programmers.random;
 
+/**
+ * https://school.programmers.co.kr/learn/courses/30/lessons/43165
+ */
 public class 타겟넘버 {
     static int answer = 0;
     public int solution(int[] numbers, int target) {
