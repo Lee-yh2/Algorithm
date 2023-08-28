@@ -59,6 +59,5 @@ public class 빛의경로사이클 {
             int nextY = (curY + dirY[dir] + col) % col;
             dfs(depth + 1, nextX, nextY, dir, grid);
         }
-
     }
 }
