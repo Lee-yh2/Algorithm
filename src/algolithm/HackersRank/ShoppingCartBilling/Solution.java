@@ -1,8 +1,13 @@
 package algolithm.HackersRank.ShoppingCartBilling;
 
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.StringTokenizer;
 
 class Result{
     public static int findLowestPrice(List<List<String>> products, List<List<String>> discounts){
@@ -21,7 +26,10 @@ class Result{
             int price = Integer.parseInt(product.get(0));
             for (int i = 1; i < product.size(); i++) {
                 int[] typeAndPersent = discountMap.get(product.get(i));
-                minPrice = Math.min(minPrice, calculationDiscount(typeAndPersent, price));
+                if(product.get(i).equals("EMPTY")){
+                    minPrice = Math.min(minPrice, Integer.parseInt(product.get(0)));
+                }else
+                    minPrice = Math.min(minPrice, calculationDiscount(typeAndPersent, price));
             }
 
             sum += minPrice;
@@ -49,7 +57,36 @@ class Result{
     }
 }
 public class Solution {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st;
 
+        List<List<String>> products = new ArrayList<>();
+        List<List<String>> discounts = new ArrayList<>();
+
+        int n = Integer.parseInt(br.readLine());
+        int m = Integer.parseInt(br.readLine());
+        for (int i = 0; i < n; i++) {
+            st = new StringTokenizer(br.readLine());
+            List<String> product = new ArrayList<>();
+            for (int j = 0; j < m; j++) {
+                product.add(st.nextToken());
+            }
+            products.add(product);
+        }
+
+        int d = Integer.parseInt(br.readLine());
+        int s = Integer.parseInt(br.readLine());
+
+        for (int i = 0; i < d; i++) {
+            st = new StringTokenizer(br.readLine());
+            List<String> discount = new ArrayList<>();
+            for (int j = 0; j < s; j++) {
+                discount.add(st.nextToken());
+            }
+            discounts.add(discount);
+        }
+
+        System.out.println(Result.findLowestPrice(products, discounts));
     }
 }
