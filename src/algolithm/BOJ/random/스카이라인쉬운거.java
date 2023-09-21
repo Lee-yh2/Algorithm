@@ -37,6 +37,13 @@ public class 스카이라인쉬운거 {
             stack.push(h);
         }
 
+        while (!stack.isEmpty()){
+            if (stack.peek() > 0)
+                answer++;
+
+            stack.pop();
+        }
+
         System.out.print(answer);
     }
 }
