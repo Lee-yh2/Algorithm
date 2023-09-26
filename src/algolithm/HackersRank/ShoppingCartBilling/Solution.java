@@ -21,13 +21,12 @@ class Result{
         }
 
         for (List<String> product : products){
-            int minPrice = Integer.MAX_VALUE;
-
             int price = Integer.parseInt(product.get(0));
+            int minPrice = price;
             for (int i = 1; i < product.size(); i++) {
                 int[] typeAndPersent = discountMap.get(product.get(i));
                 if(product.get(i).equals("EMPTY")){
-                    minPrice = Math.min(minPrice, Integer.parseInt(product.get(0)));
+                    minPrice = Math.min(minPrice, price);
                 }else
                     minPrice = Math.min(minPrice, calculationDiscount(typeAndPersent, price));
             }

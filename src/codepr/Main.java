@@ -7,7 +7,7 @@ import java.util.Stack;
 
 class Result {
     public static int degreeOfArray(List<Integer> arr) {
-        
+        return 1;
     }
 }
 public class Main {
